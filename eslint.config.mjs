@@ -14,6 +14,7 @@ export default [
     rules: {
       'no-undef': 'off',
       '@typescript-eslint/no-require-imports': 'off',
+      'no-unused-vars': 'warn',
     },
   },
 ];
