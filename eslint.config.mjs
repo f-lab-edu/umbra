@@ -15,6 +15,8 @@ export default [
       'no-undef': 'off',
       '@typescript-eslint/no-require-imports': 'off',
       'no-unused-vars': 'warn',
+      'no-console': 'warn',
+      '@typescript-eslint/no-unused-vars': 'warn',
     },
   },
 ];
