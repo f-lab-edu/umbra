@@ -5,29 +5,29 @@ const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
-    mode: 'production',
-    devtool: 'hidden-source-map',
-    output: {
-        filename: 'bundle.[contenthash].js',
-    },
-    module: {
-        rules: [
-            {
-                test: /\.css$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader'],
-            },
-        ],
-    },
-    plugins: [
-        new MiniCssExtractPlugin({
-            filename: '[name].[contenthash].css',
-        }),
+  mode: 'production',
+  devtool: 'hidden-source-map',
+  output: {
+    filename: 'bundle.[contenthash].js',
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
     ],
-    // optimization: {
-    //     minimize: true,
-    //     minimizer: [
-    //         new TerserPlugin(),
-    //         new CssMinimizerPlugin(),
-    //     ],
-    // },
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].[contenthash].css',
+    }),
+  ],
+  // optimization: {
+  //     minimize: true,
+  //     minimizer: [
+  //         new TerserPlugin(),
+  //         new CssMinimizerPlugin(),
+  //     ],
+  // },
 });
