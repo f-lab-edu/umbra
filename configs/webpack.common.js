@@ -44,7 +44,7 @@ module.exports = {
       async: false,
     }),
     new Dotenv({
-      path: `./.env.${process.env.NODE_ENV}`,
+      path: `./.env`,
     }),
   ],
 };
