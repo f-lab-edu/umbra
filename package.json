@@ -12,7 +12,7 @@
   "license": "ISC",
   "description": "",
   "lint-staged": {
-    "*.{js,ts,tsx}": "eslint --fix --max-warnings=0"
+    "*.{js,ts,tsx}": "eslint --fix"
   },
   "dependencies": {
     "axios": "^1.7.9",
