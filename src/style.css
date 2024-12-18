@@ -1,0 +1,13 @@
+/* src/styles.css */
+.app-container {
+    background-color: lavender;
+    padding: 20px;
+}
+
+body {
+    background-color: lightblue;
+}
+
+h1 {
+    color: darkblue;
+}
