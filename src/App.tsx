@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import MainPage from '@/app/page';
+import MainLayout from '@/app/layout';
 
 const queryClient = new QueryClient();
 
@@ -11,7 +12,9 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<MainPage />} />
+          <Route element={<MainLayout />}>
+            <Route index element={<MainPage />} />
+          </Route>
         </Routes>
       </BrowserRouter>
 
