@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { umbraApi } from '@/lib/umbraApi';
+import { BrowserRouter, Routes, Route } from 'react-router';
+import MainPage from '@/app/page';
 
 const App = () => {
   useEffect(() => {
@@ -12,9 +14,11 @@ const App = () => {
   }, []);
 
   return (
-    <div className="bg-red-300 text-xl text-blue-100">
-      <h1>Hello, World! </h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
