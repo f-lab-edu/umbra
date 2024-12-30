@@ -1,9 +1,9 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import MainPage from '@/app/page';
 import MainLayout from '@/app/layout';
+import MoviePage from '@/app/movie/page';
 
 const queryClient = new QueryClient();
 
@@ -13,7 +13,8 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route element={<MainLayout />}>
-            <Route index element={<MainPage />} />
+            <Route path="/" element={<Navigate to="/movie" replace />} />
+            <Route path="/movie" element={<MoviePage />} />
           </Route>
         </Routes>
       </BrowserRouter>
