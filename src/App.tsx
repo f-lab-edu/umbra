@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import './style.css';
 import { umbraApi } from '@/lib/umbraApi';
 
 const App = () => {
@@ -13,7 +12,7 @@ const App = () => {
   }, []);
 
   return (
-    <div className="app-container">
+    <div className="bg-red-300 text-xl text-blue-100">
       <h1>Hello, World! </h1>
     </div>
   );
