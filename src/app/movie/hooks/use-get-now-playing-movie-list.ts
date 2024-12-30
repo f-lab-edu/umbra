@@ -4,7 +4,7 @@ import { movieRepository } from '@/app/movie/movie-repository';
 const useGetNowPlayingMovieList = ({ page }: { page: number }) => {
   return useSuspenseInfiniteQuery({
     queryKey: ['nowPlayingMovieList'],
-    queryFn: () => movieRepository.getNowPlayingList({ page }),
+    queryFn: ({ pageParam }) => movieRepository.getNowPlayingList({ page: pageParam }),
     getNextPageParam: (lastPage): number | null => {
       const nextPage = lastPage.page + 1;
       return nextPage >= lastPage.total_pages ? null : nextPage;
