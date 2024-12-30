@@ -11,6 +11,9 @@ module.exports = {
     clean: true,
   },
   resolve: {
+    alias: {
+      '@': path.resolve(__dirname, '../src'),
+    },
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
   module: {
@@ -27,11 +30,11 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
+        type: 'asset',
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: 'asset/resource',
+        type: 'asset',
       },
     ],
   },
