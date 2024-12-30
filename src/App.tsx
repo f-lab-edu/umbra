@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import './style.css';
-import { umbraApi } from './lib/umbraApi';
+import { umbraApi } from '@/lib/umbraApi';
 
 const App = () => {
   useEffect(() => {
