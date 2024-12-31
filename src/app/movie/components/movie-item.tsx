@@ -1,9 +1,10 @@
 import React from 'react';
+import { LazyImage } from '@/components/lazy-image';
 
 const MovieItem = ({ imageUrl }: { imageUrl: string }) => {
   return (
     <div className="w-full h-full aspect-video rounded-lg overflow-hidden cursor-pointer transition duration-300 ease-in-out hover:brightness-75">
-      <img
+      <LazyImage
         className="w-full h-full"
         alt={'movie'}
         src={`https://image.tmdb.org/t/p/w300/${imageUrl}`}
