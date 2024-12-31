@@ -1,28 +1,16 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { useGetNowPlayingMovieList } from '@/app/movie/hooks/use-get-now-playing-movie-list';
 import { MovieItem } from '@/app/movie/components/movie-item';
+import { useInView } from '@/hooks/use-in-view';
 
 const NowPlayingMovieList = () => {
   const { data, error, isFetching, fetchNextPage } = useGetNowPlayingMovieList({
     page: 1,
   });
 
-  const observerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          fetchNextPage();
-        }
-      },
-      { threshold: 1.0 },
-    );
-
-    if (observerRef.current) observer.observe(observerRef.current);
-
-    return () => observer.disconnect();
-  }, []);
+  const { ref } = useInView<HTMLDivElement>(() => {
+    fetchNextPage();
+  }, {});
 
   if (error && !isFetching) {
     throw error;
@@ -33,7 +21,7 @@ const NowPlayingMovieList = () => {
       {data.pages.map((item) => {
         return <MovieItem key={item.id} imageUrl={item.backdrop_path} />;
       })}
-      <div ref={observerRef} className="w-0 h-0" />
+      <div ref={ref} className="w-0 h-0" />
     </>
   );
 };
