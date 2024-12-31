@@ -9,12 +9,6 @@ const NowPlayingMovieList = () => {
 
   const observerRef = useRef<HTMLDivElement>(null);
 
-  /**
-   * TODO: 무한스크롤 이슈
-   *  - 이미지가 로드가 늦게 되기때문에 처음에
-   *    인터섹션 옵저버 요소가 먼저 보여지므로
-   *    항상 처음 한번은 다음 페이지를 호출하는 문제 발생
-   * */
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
