@@ -8,8 +8,8 @@ const MoviePage = () => {
     <div className="flex flex-col px-10 py-6">
       <div className="h-[200px] mb-10">
         <Carousel>
-          {Array.from({ length: 20 }).map((_, idx) => (
-            <div key={idx} className=" text-white p-4 rounded-lg pr-4 min-w-[200px] h-full">
+          {Array.from({ length: 5 }).map((_, idx) => (
+            <div key={idx} className=" text-white p-4 rounded-lg pr-4 min-w-[500px] h-full">
               <div className="bg-gray-500 w-full h-full">Top {idx + 1}</div>
             </div>
           ))}
