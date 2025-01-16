@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import MainLayout from '@/app/layout';
 import MoviePage from '@/app/movie/page';
+import SearchPage from '@/app/search/page';
 
 const queryClient = new QueryClient();
 
@@ -15,6 +16,7 @@ const App = () => {
           <Route element={<MainLayout />}>
             <Route path="/" element={<Navigate to="/movie" replace />} />
             <Route path="/movie" element={<MoviePage />} />
+            <Route path="/search" element={<SearchPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
