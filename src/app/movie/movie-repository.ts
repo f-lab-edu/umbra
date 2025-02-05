@@ -5,19 +5,19 @@ interface NowPlayingMovieApiResponse {
   page: number;
   results: {
     adult: boolean;
-    backdrop_path: string;
-    genre_ids: number[];
+    backdropPath: string;
+    genreIds: number[];
     id: number;
-    original_language: string;
-    original_title: string;
+    originalLanguage: string;
+    originalTitle: string;
     overview: string;
     popularity: number;
-    poster_path: string;
-    release_date: string;
+    posterPath: string;
+    releaseDate: string;
     title: string;
     video: boolean;
-    vote_average: number;
-    vote_count: number;
+    voteAverage: number;
+    voteCount: number;
   };
   total_pages: number;
 }
@@ -28,10 +28,8 @@ interface MovieDetailsApiResponse {
 }
 
 const movieRepository = {
-  getNowPlayingList: async ({ page }: { page: number }): Promise<NowPlayingMovieApiResponse> => {
-    const { data } = await umbraApi.get(`/movie/now_playing?page=${page}`);
-    return data;
-  },
+  getNowPlayingList: async ({ page }: { page: number }): Promise<NowPlayingMovieApiResponse> =>
+    umbraApi.get(`/movie/now_playing?page=${page}`).then((res) => convertSnakeToCamelCase(res.data)),
   getMovieDetail: async ({ id }: { id: number }): Promise<MovieDetailsApiResponse> =>
     umbraApi.get(`/movie/${id}`).then((res) => convertSnakeToCamelCase(res.data)),
 };
