@@ -2,6 +2,9 @@ import React from 'react';
 import { useGetNowPlayingMovieList } from '@/app/movie/hooks/use-get-now-playing-movie-list';
 import { MovieItem } from '@/app/movie/components/movie-item';
 import { useInView } from '@/hooks/use-in-view';
+import { useModal } from '@/hooks/use-modal';
+import { ModalsEnum } from '@/store/modal-slice';
+import { MovieDetailModalProps } from '@/app/movie/components/movie-detail-modal';
 
 const NowPlayingMovieList = () => {
   const { data, error, isFetching, fetchNextPage } = useGetNowPlayingMovieList({
@@ -11,6 +14,13 @@ const NowPlayingMovieList = () => {
   const { ref } = useInView<HTMLDivElement>(() => {
     fetchNextPage();
   }, {});
+  const movieDetailModal = useModal<MovieDetailModalProps>(ModalsEnum.MovieDetail);
+
+  const handleMovieItemClick = () => {
+    movieDetailModal.open({
+      closeModal: movieDetailModal.close,
+    });
+  };
 
   if (error && !isFetching) {
     throw error;
@@ -19,7 +29,7 @@ const NowPlayingMovieList = () => {
   return (
     <>
       {data.pages.map((item) => {
-        return <MovieItem key={item.id} imageUrl={item.backdrop_path} />;
+        return <MovieItem key={item.id} imageUrl={item.backdrop_path} onClick={handleMovieItemClick} />;
       })}
       <div ref={ref} className="w-0 h-0" />
     </>

@@ -1,9 +1,12 @@
 import React from 'react';
 import { LazyImage } from '@/components/lazy-image';
 
-const MovieItem = ({ imageUrl }: { imageUrl: string }) => {
+const MovieItem = ({ imageUrl, onClick }: { imageUrl: string; onClick: () => void }) => {
   return (
-    <div className="w-full h-full aspect-video rounded-lg overflow-hidden cursor-pointer transition duration-300 ease-in-out hover:brightness-75">
+    <div
+      className="w-full h-full aspect-video rounded-lg overflow-hidden cursor-pointer transition duration-300 ease-in-out hover:brightness-75"
+      onClick={onClick}
+    >
       <LazyImage
         className="w-full h-full"
         alt={'movie'}
