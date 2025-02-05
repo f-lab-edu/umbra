@@ -24,6 +24,7 @@ interface NowPlayingMovieApiResponse {
 
 interface MovieDetailsApiResponse {
   originalTitle: string;
+  posterPath: string;
 }
 
 const movieRepository = {
