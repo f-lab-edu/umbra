@@ -16,8 +16,9 @@ const NowPlayingMovieList = () => {
   }, {});
   const movieDetailModal = useModal<MovieDetailModalProps>(ModalsEnum.MovieDetail);
 
-  const handleMovieItemClick = () => {
+  const handleMovieItemClick = ({ movieId }: { movieId: number }) => {
     movieDetailModal.open({
+      movieId: movieId,
       closeModal: movieDetailModal.close,
     });
   };
@@ -29,7 +30,15 @@ const NowPlayingMovieList = () => {
   return (
     <>
       {data.pages.map((item) => {
-        return <MovieItem key={item.id} imageUrl={item.backdrop_path} onClick={handleMovieItemClick} />;
+        return (
+          <MovieItem
+            key={item.id}
+            imageUrl={item.backdrop_path}
+            onClick={() => {
+              handleMovieItemClick({ movieId: item.id });
+            }}
+          />
+        );
       })}
       <div ref={ref} className="w-0 h-0" />
     </>
