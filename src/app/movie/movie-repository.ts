@@ -19,7 +19,7 @@ interface NowPlayingMovieApiResponse {
     voteAverage: number;
     voteCount: number;
   };
-  total_pages: number;
+  totalPages: number;
 }
 
 interface MovieDetailsApiResponse {
