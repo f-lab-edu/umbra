@@ -5,6 +5,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import MainLayout from '@/app/layout';
 import MoviePage from '@/app/movie/page';
 import SearchPage from '@/app/search/page';
+import { ModalRenderer } from '@/components/modal-renderer';
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,9 @@ const App = () => {
           </Route>
         </Routes>
       </BrowserRouter>
+
+      {/* 모달 */}
+      <ModalRenderer />
 
       {/* 개발환경에서만 노출 */}
       {process.env.NODE_ENV === 'development' && <ReactQueryDevtools initialIsOpen={false} />}
