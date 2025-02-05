@@ -7,7 +7,7 @@ const useGetNowPlayingMovieList = ({ page }: { page: number }) => {
     queryFn: ({ pageParam }) => movieRepository.getNowPlayingList({ page: pageParam }),
     getNextPageParam: (lastPage): number | null => {
       const nextPage = lastPage.page + 1;
-      return nextPage >= lastPage.total_pages ? null : nextPage;
+      return nextPage >= lastPage.totalPages ? null : nextPage;
     },
     select: (data) => {
       return {

@@ -7,7 +7,7 @@ import { ModalsEnum } from '@/store/modal-slice';
 import { MovieDetailModalProps } from '@/app/movie/components/movie-detail-modal';
 
 const NowPlayingMovieList = () => {
-  const { data, error, isFetching, fetchNextPage } = useGetNowPlayingMovieList({
+  const { data, fetchNextPage } = useGetNowPlayingMovieList({
     page: 1,
   });
 
@@ -23,17 +23,13 @@ const NowPlayingMovieList = () => {
     });
   };
 
-  if (error && !isFetching) {
-    throw error;
-  }
-
   return (
     <>
       {data.pages.map((item) => {
         return (
           <MovieItem
             key={item.id}
-            imageUrl={item.backdrop_path}
+            imageUrl={item.backdropPath}
             onClick={() => {
               handleMovieItemClick({ movieId: item.id });
             }}
