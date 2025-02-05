@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack -c ./configs/webpack.prod.js",
-    "dev": "webpack serve --open -c ./configs/webpack.dev.js",
+    "dev": "node scripts/check-env.js && webpack serve -c ./configs/webpack.dev.js",
     "prepare": "husky install"
   },
   "keywords": [],
