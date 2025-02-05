@@ -27,11 +27,21 @@ interface MovieDetailsApiResponse {
   posterPath: string;
 }
 
+interface MovieTopRatedApiResponse {
+  results: Array<{
+    id: number;
+    backdropPath: string;
+    originalTitle: string;
+  }>;
+}
+
 const movieRepository = {
   getNowPlayingList: async ({ page }: { page: number }): Promise<NowPlayingMovieApiResponse> =>
     umbraApi.get(`/movie/now_playing?page=${page}`).then((res) => convertSnakeToCamelCase(res.data)),
   getMovieDetail: async ({ id }: { id: number }): Promise<MovieDetailsApiResponse> =>
     umbraApi.get(`/movie/${id}`).then((res) => convertSnakeToCamelCase(res.data)),
+  getMovieTopRated: async (): Promise<MovieTopRatedApiResponse> =>
+    umbraApi.get('movie/top_rated').then((res) => convertSnakeToCamelCase(res.data)),
 };
 
 export { movieRepository };
