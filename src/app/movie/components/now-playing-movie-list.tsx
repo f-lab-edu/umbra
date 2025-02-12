@@ -2,9 +2,8 @@ import React from 'react';
 import { useGetNowPlayingMovieList } from '@/app/movie/hooks/use-get-now-playing-movie-list';
 import { MovieItem } from '@/app/movie/components/movie-item';
 import { useInView } from '@/hooks/use-in-view';
-import { useModal } from '@/hooks/use-modal';
-import { ModalsEnum } from '@/store/modal-slice';
-import { MovieDetailModalProps } from '@/app/movie/components/movie-detail-modal';
+import { MovieDetailModal } from '@/app/movie/components/movie-detail-modal';
+import { useModal } from '@/components/modal-provider';
 
 const NowPlayingMovieList = () => {
   const { data, fetchNextPage } = useGetNowPlayingMovieList({
@@ -14,15 +13,12 @@ const NowPlayingMovieList = () => {
   const { ref } = useInView<HTMLDivElement>(() => {
     fetchNextPage();
   }, {});
-  const movieDetailModal = useModal<MovieDetailModalProps>(ModalsEnum.MovieDetail);
-
+  const movieDetailModal = useModal();
   const handleMovieItemClick = ({ movieId }: { movieId: number }) => {
-    movieDetailModal.open({
-      movieId: movieId,
-      closeModal: movieDetailModal.close,
-    });
+    movieDetailModal.open(({ isOpen, close }) => (
+      <MovieDetailModal movieId={movieId} isOpen={isOpen} closeModal={close} />
+    ));
   };
-
   return (
     <>
       {data.pages.map((item) => {

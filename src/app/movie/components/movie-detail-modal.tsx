@@ -6,11 +6,12 @@ import { ErrorFallback } from '@/components/error-fallback';
 import { useQueryClient } from '@tanstack/react-query';
 
 interface MovieDetailModalProps {
+  isOpen: boolean;
   movieId: number;
   closeModal: () => void;
 }
 
-const MovieDetailModal = ({ closeModal, movieId }: MovieDetailModalProps) => {
+const MovieDetailModal = ({ isOpen, closeModal, movieId }: MovieDetailModalProps) => {
   const queryClient = useQueryClient();
 
   const handleErrorRetry = () => {
@@ -18,7 +19,7 @@ const MovieDetailModal = ({ closeModal, movieId }: MovieDetailModalProps) => {
   };
 
   return (
-    <Dialog className="relative z-[100]" open={true} onClose={closeModal}>
+    <Dialog className="relative z-[100]" open={isOpen} onClose={closeModal}>
       <DialogBackdrop className="fixed inset-0 bg-black/30" />
       <div className="fixed inset-0 flex w-screen items-center justify-center">
         <DialogPanel>
