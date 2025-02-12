@@ -1,6 +1,7 @@
-import React, { KeyboardEventHandler } from 'react';
+import React, { KeyboardEventHandler, useEffect } from 'react';
 import { SearchInput } from '@/app/search/components/search-input';
 import { useLocation, useNavigate } from 'react-router';
+import { LoginInfo } from '@/app/components/login-info';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -29,6 +30,7 @@ const Header = () => {
             <SearchInput initInputValue={''} onKeyDown={handleSearchInputKeyDown} />
           </div>
         )}
+        <LoginInfo />
       </div>
     </header>
   );
