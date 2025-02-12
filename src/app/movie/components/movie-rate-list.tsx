@@ -2,19 +2,17 @@ import React from 'react';
 import { Carousel } from '@/components/carousel';
 import { useGetMovieTopRated } from '@/app/movie/hooks/use-get-movie-top-rated';
 import { MovieItem } from '@/app/movie/components/movie-item';
-import { useModal } from '@/hooks/use-modal';
-import { MovieDetailModalProps } from '@/app/movie/components/movie-detail-modal';
-import { ModalsEnum } from '@/store/modal-slice';
+import { useModal } from '@/components/modal-provider';
+import { MovieDetailModal } from '@/app/movie/components/movie-detail-modal';
 
 const MovieRateList = () => {
   const { data } = useGetMovieTopRated();
 
-  const movieDetailModal = useModal<MovieDetailModalProps>(ModalsEnum.MovieDetail);
+  const movieDetailModal = useModal();
   const handleMovieItemClick = ({ movieId }: { movieId: number }) => {
-    movieDetailModal.open({
-      movieId: movieId,
-      closeModal: movieDetailModal.close,
-    });
+    movieDetailModal.open(({ isOpen, close }) => (
+      <MovieDetailModal movieId={movieId} isOpen={isOpen} closeModal={close} />
+    ));
   };
 
   return (
