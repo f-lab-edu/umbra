@@ -6,6 +6,8 @@ import MainLayout from '@/app/layout';
 import MoviePage from '@/app/movie/page';
 import SearchPage from '@/app/search/page';
 import { ModalRenderer } from '@/components/modal-renderer';
+import LoginPage from '@/app/login/page';
+import LoginFallbackPage from '@/app/login/fallback/page';
 
 const queryClient = new QueryClient();
 
@@ -18,6 +20,8 @@ const App = () => {
             <Route path="/" element={<Navigate to="/movie" replace />} />
             <Route path="/movie" element={<MoviePage />} />
             <Route path="/search" element={<SearchPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/loginfallback" element={<LoginFallbackPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
