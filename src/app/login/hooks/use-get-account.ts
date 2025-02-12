@@ -1,11 +1,15 @@
-import { useMutation } from '@tanstack/react-query';
-import { loginRepository, UserAccountInfo } from '@/app/login/login-repository';
+import { useSuspenseQuery } from '@tanstack/react-query';
+import { loginRepository } from '@/app/login/login-repository';
 
-const useGetAccount = ({ onSuccess, onError }: { onSuccess: (data: UserAccountInfo) => void; onError: () => void }) => {
-  return useMutation({
-    mutationFn: ({ sessionId }: { sessionId: string }) => loginRepository.getAccount({ sessionId }),
-    onSuccess,
-    onError,
+const useGetAccount = ({ sessionId }: { sessionId: string }) => {
+  return useSuspenseQuery({
+    queryKey: ['getAccount'],
+
+    queryFn: () => loginRepository.getAccount({ sessionId }),
+    retry: 0,
+    refetchOnMount: false,
+    refetchOnReconnect: false,
+    refetchOnWindowFocus: false,
   });
 };
 
