@@ -3,8 +3,7 @@ import { loginRepository } from '@/app/login/login-repository';
 
 const useGetAccount = ({ sessionId }: { sessionId: string }) => {
   return useSuspenseQuery({
-    queryKey: ['getAccount'],
-
+    queryKey: ['getAccount', sessionId],
     queryFn: () => loginRepository.getAccount({ sessionId }),
     retry: 0,
     refetchOnMount: false,

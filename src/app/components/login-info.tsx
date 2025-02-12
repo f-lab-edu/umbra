@@ -4,6 +4,7 @@ import { userAccountSelector } from '@/store/user-account';
 import { useGetAccount } from '@/app/login/hooks/use-get-account';
 import { useNavigate } from 'react-router';
 import { ErrorBoundary } from '@/components/error-boundary';
+import { useLogout } from '@/app/login/hooks/use-logout';
 
 const LoginInfo = () => {
   const navigate = useNavigate();
@@ -33,8 +34,24 @@ const LoginInfo = () => {
 };
 
 const AccountInfo = ({ sessionId }: { sessionId: string }) => {
-  const { data } = useGetAccount({ sessionId });
+  const navigate = useNavigate();
   const setUserAccountInfo = useStore(userAccountSelector.setUserAccountInfo);
+
+  const { data } = useGetAccount({ sessionId });
+  const { mutate: logoutMutate } = useLogout({
+    onSuccess: (data) => {
+      if (data.success) {
+        localStorage.removeItem('session');
+        setUserAccountInfo(null);
+        navigate('/');
+      } else {
+        alert('로그아웃에 실패했습니다. 다시 시도해주세요.');
+      }
+    },
+    onError: () => {
+      alert('로그아웃에 실패했습니다. 다시 시도해주세요.');
+    },
+  });
 
   useEffect(() => {
     setUserAccountInfo({
@@ -43,7 +60,18 @@ const AccountInfo = ({ sessionId }: { sessionId: string }) => {
     });
   }, [data]);
 
-  return <div className="ml-4">{data.username}</div>;
+  const handleLogout = () => {
+    logoutMutate({ sessionId: sessionId });
+  };
+
+  return (
+    <div className="ml-4">
+      <span>{data.username}</span>
+      <button className="ml-4" onClick={handleLogout}>
+        로그아웃
+      </button>
+    </div>
+  );
 };
 
 export { LoginInfo };
