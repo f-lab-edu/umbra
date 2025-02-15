@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const { TsCheckerRspackPlugin } = require('ts-checker-rspack-plugin');
 const Dotenv = require('dotenv-webpack');
 
 module.exports = {
@@ -20,11 +20,17 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx|ts|tsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
+        loader: 'builtin:swc-loader',
+        exclude: [/[\\/]node_modules[\\/]/],
+        options: {
+          jsc: {
+            parser: {
+              syntax: 'typescript',
+              tsx: true,
+            },
+          },
+          env: {
+            targets: 'Chrome >= 48', // browser compatibility
           },
         },
       },
@@ -43,7 +49,7 @@ module.exports = {
       template: './public/index.html',
       inject: 'body',
     }),
-    new ForkTsCheckerWebpackPlugin({
+    new TsCheckerRspackPlugin({
       async: false,
     }),
     new Dotenv({
