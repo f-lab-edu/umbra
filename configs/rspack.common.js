@@ -21,16 +21,13 @@ module.exports = {
       {
         test: /\.(js|jsx|ts|tsx)$/,
         loader: 'builtin:swc-loader',
-        exclude: [/[\\/]node_modules[\\/]/],
+        exclude: [/node_modules/],
         options: {
           jsc: {
             parser: {
               syntax: 'typescript',
               tsx: true,
             },
-          },
-          env: {
-            targets: 'Chrome >= 48', // browser compatibility
           },
         },
       },

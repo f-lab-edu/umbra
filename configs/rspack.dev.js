@@ -22,7 +22,7 @@ module.exports = merge(common, {
       },
       {
         test: /\.(js|jsx|ts|tsx)$/,
-        exclude: /node_modules/,
+        exclude: [/node_modules/],
         use: [
           {
             loader: 'builtin:swc-loader',
@@ -35,7 +35,6 @@ module.exports = merge(common, {
                     refresh: true,
                   },
                 },
-                externalHelpers: true,
               },
             },
           },
