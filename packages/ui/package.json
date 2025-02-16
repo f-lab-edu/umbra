@@ -1,0 +1,12 @@
+{
+  "name": "@umbra/ui",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "react": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.1"
+  }
+}
+
