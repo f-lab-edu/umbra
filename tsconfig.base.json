@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@umbra/ui": ["packages/ui/index.ts"],
+    }
+  }
+}

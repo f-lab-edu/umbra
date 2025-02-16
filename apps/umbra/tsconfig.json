@@ -1,5 +1,7 @@
 {
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "es2019",           // 변환할 JavaScript 버전
     "module": "commonjs",      // 모듈 시스템 (e.g. commonjs, esnext)
     "outDir": "./dist",        // 컴파일된 파일 출력 폴더
@@ -9,8 +11,9 @@
     "jsx": "react",
     "paths": {
       "@/*": ["src/*"]
-    }
+    },
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+
 }

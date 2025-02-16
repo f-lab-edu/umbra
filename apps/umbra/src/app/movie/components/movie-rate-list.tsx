@@ -1,5 +1,5 @@
 import React from 'react';
-import { Carousel } from '../../../components/carousel';
+import { Carousel } from '@umbra/ui';
 import { useGetMovieTopRated } from '../hooks/use-get-movie-top-rated';
 import { MovieItem } from './movie-item';
 import { useModal } from '../../../components/modal-provider';
