@@ -12,13 +12,19 @@ const styleInfo = {
   fill: 'text-white bg-blue-500 rounded hover:shadow-[inset_0_0_0_100px_rgba(40,41,46,0.08)] disabled:opacity-50',
 } as const;
 
-const Button: React.FC<{
+const Button = ({
+  size,
+  theme,
+  disabled,
+  children,
+  onClick,
+}: {
   size: Size;
   theme: Theme;
   disabled: boolean;
   children: ReactNode;
   onClick: (e: MouseEvent<HTMLButtonElement>) => void;
-}> = ({ size, theme, disabled, children, onClick }) => {
+}) => {
   return (
     <button
       className={`flex justify-center items-center ${styleInfo[size]} ${styleInfo[theme]} font-semibold`}
