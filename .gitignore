@@ -1,4 +1,9 @@
 /node_modules
 /dist
 
-.env
+apps/umbra/.env
+apps/umbra/node_modules
+apps/umbra/dist
+packages/ui/node_modules
+
+*storybook.log

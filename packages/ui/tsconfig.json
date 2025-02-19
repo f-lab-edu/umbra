@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react"
+  },
+  "include": [
+    "./src/stories/*",
+    "./component/*",
+    ".storybook/*"
+  ],
+  "exclude": ["node_modules"]
+}
