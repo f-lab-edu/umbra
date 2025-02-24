@@ -1,11 +1,19 @@
 {
   "compilerOptions": {
+    "outDir": "dist",
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "declarationMap": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "strict": true,
     "esModuleInterop": true,
+    "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "jsx": "react"
   },
   "include": [
+    "./index.ts",
     "./src/stories/*",
     "./component/*",
     ".storybook/*"
