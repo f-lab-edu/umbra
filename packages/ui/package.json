@@ -1,12 +1,28 @@
 {
   "name": "@umbra/ui",
   "version": "1.0.0",
-  "main": "index.js",
-  "dependencies": {
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/index.cjs.js",
+    "dist/index.esm.js",
+    "dist/index.d.ts",
+    "dist/index.d.ts.map"
+  ],
+  "scripts": {
+    "build": " rspack && tsc --emitDeclarationOnly",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "prepare": "pnpm run build"
+  },
+  "peerDependencies": {
     "react": "^19.0.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.4",
+    "@rspack/cli": "^1.2.3",
+    "@rspack/core": "^1.2.3",
     "@storybook/addon-essentials": "^8.5.6",
     "@storybook/addon-interactions": "^8.5.6",
     "@storybook/addon-onboarding": "^8.5.6",
@@ -23,13 +39,14 @@
     "autoprefixer": "^10.4.20",
     "postcss": "^8.5.2",
     "prettier": "^3.4.2",
+    "react": "^19.0.0",
     "storybook": "^8.5.6",
     "storybook-react-rsbuild": "^0.1.10",
     "tailwindcss": "^3.4.17",
+    "ts-checker-rspack-plugin": "^1.1.1",
     "typescript": "^5.7.2"
   },
-  "scripts": {
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+  "publishConfig": {
+    "access": "public"
   }
 }
