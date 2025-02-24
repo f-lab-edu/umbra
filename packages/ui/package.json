@@ -1,5 +1,5 @@
 {
-  "name": "@umbra/ui",
+  "name": "@zaydenvc/ui",
   "version": "1.0.0",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
