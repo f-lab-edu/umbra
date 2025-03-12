@@ -3,7 +3,6 @@
     "outDir": "dist",
     "declaration": true,
     "emitDeclarationOnly": true,
-    "declarationMap": true,
     "module": "ESNext",
     "moduleResolution": "Node",
     "strict": true,
@@ -13,10 +12,12 @@
     "jsx": "react"
   },
   "include": [
-    "./index.ts",
-    "./src/stories/*",
-    "./component/*",
-    ".storybook/*"
+    "index.ts",
+    "component/**/*"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    "src/stories/**/*",
+    ".storybook/**/*"
+  ]
 }

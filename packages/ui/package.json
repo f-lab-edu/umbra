@@ -1,6 +1,6 @@
 {
   "name": "@zaydenvc/ui",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
@@ -11,7 +11,7 @@
     "dist/index.d.ts.map"
   ],
   "scripts": {
-    "build": " rspack && tsc --emitDeclarationOnly",
+    "build": " rspack && tsc ",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "prepare": "pnpm run build"
