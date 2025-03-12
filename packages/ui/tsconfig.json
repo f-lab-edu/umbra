@@ -1,14 +1,23 @@
 {
   "compilerOptions": {
+    "outDir": "dist",
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "strict": true,
     "esModuleInterop": true,
+    "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "jsx": "react"
   },
   "include": [
-    "./src/stories/*",
-    "./component/*",
-    ".storybook/*"
+    "index.ts",
+    "component/**/*"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    "src/stories/**/*",
+    ".storybook/**/*"
+  ]
 }
