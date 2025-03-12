@@ -7,7 +7,10 @@
     "packages/*"
   ],
   "scripts": {
-    "web-dev": "pnpm --filter umbra-web run dev",
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "dev:umbra": "turbo run dev --filter=umbra-web",
+    "check-types": "tsc --noEmit",
     "prepare": "husky install"
   },
   "keywords": [],
@@ -17,18 +20,20 @@
   "lint-staged": {
     "*.{js,ts,tsx}": "eslint --fix"
   },
+  "packageManager": "pnpm@10.4.0",
   "devDependencies": {
     "@eslint/js": "^9.16.0",
     "autoprefixer": "^10.4.20",
+    "eslint": "^9.16.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.37.2",
     "globals": "^15.13.0",
     "husky": "^8.0.3",
     "lint-staged": "^15.2.11",
     "postcss": "^8.5.2",
     "tailwindcss": "^3.4.17",
-    "eslint": "^9.16.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.2.1",
-    "typescript-eslint": "^8.17.0",
-    "eslint-plugin-react": "^7.37.2"
+    "turbo": "^2.4.4",
+    "typescript-eslint": "^8.17.0"
   }
 }
