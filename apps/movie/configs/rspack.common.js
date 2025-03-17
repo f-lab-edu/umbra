@@ -52,9 +52,18 @@ module.exports = {
       shared: {
         react: {
           singleton: true,
+          requiredVersion: '^19.0.0',
+          eager: true,
         },
         'react-dom': {
           singleton: true,
+          requiredVersion: '^19.0.0',
+          eager: true,
+        },
+        '@tanstack/react-query': {
+          singleton: true,
+          requiredVersion: '^5.62.11',
+          eager: true,
         },
       },
     }),

@@ -48,6 +48,23 @@ module.exports = {
       remotes: {
         movie: 'movie@http://localhost:3001/movie.remoteEntry.js',
       },
+      shared: {
+        react: {
+          singleton: true,
+          requiredVersion: '^19.0.0',
+          eager: true,
+        },
+        'react-dom': {
+          singleton: true,
+          requiredVersion: '^19.0.0',
+          eager: true,
+        },
+        '@tanstack/react-query': {
+          singleton: true,
+          requiredVersion: '^5.62.11',
+          eager: true,
+        },
+      },
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
