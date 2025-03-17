@@ -44,9 +44,10 @@ module.exports = {
   },
   plugins: [
     new rspack.container.ModuleFederationPlugin({
-      name: 'umbra',
-      remotes: {
-        movie: 'movie@http://localhost:3001/movie.remoteEntry.js',
+      name: 'movie',
+      filename: 'movie.remoteEntry.js',
+      exposes: {
+        './movie': './src/movie',
       },
       shared: {
         react: {

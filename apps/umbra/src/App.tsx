@@ -3,11 +3,15 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import MainLayout from './app/layout';
-import MoviePage from './app/movie/page';
+
 import SearchPage from './app/search/page';
 import LoginPage from './app/login/page';
 import LoginFallbackPage from './app/login/fallback/page';
 import { ModalProvider } from './components/modal-provider';
+
+// TODO: 타입 설정 방법 찾기
+// @ts-ignore
+const MoviePage = React.lazy(() => import('movie/movie'));
 
 const queryClient = new QueryClient();
 
