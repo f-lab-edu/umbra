@@ -12,7 +12,7 @@ const MovieRateList = () => {
       <Carousel>
         {data.results.map((item) => (
           <div key={item.id} className="pr-5 w-full h-full">
-            <MovieItem imageUrl={item.backdropPath} onClick={() => {}} />
+            <MovieItem id={item.id} imageUrl={item.backdropPath} />
           </div>
         ))}
       </Carousel>

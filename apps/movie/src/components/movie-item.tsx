@@ -1,9 +1,19 @@
 import React from 'react';
 import { LazyImage } from './lazy-image';
+import { useNavigate } from 'react-router';
 
-const MovieItem = ({ imageUrl }: { imageUrl: string; onClick: () => void }) => {
+const MovieItem = ({ id, imageUrl }: { id: number; imageUrl: string }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/movie/${id}`);
+  };
+
   return (
-    <div className="w-full h-full aspect-video rounded-lg overflow-hidden cursor-pointer transition duration-300 ease-in-out hover:brightness-75">
+    <div
+      onClick={handleClick}
+      className="w-full h-full aspect-video rounded-lg overflow-hidden cursor-pointer transition duration-300 ease-in-out hover:brightness-75"
+    >
       <LazyImage
         className="w-full h-full"
         alt={'movie'}
