@@ -9,6 +9,7 @@ import { useGetMovies } from './hooks/use-get-movies';
 import { MovieCard } from './components/movie-card';
 
 import type { MovieDiscoverParams, MovieRecommendationForm } from './types';
+import { StepControlAndSubmitButton } from './components/step-control-and-submit-button';
 
 const MovieRecommendPage = () => {
   const [currentStep, setCurrentStep] = useState<number>(0);
@@ -65,22 +66,7 @@ const MovieRecommendPage = () => {
     }
   };
 
-  const isStepValid = () => {
-    switch (currentStep) {
-      case STEPS[Step.GENRE]:
-        return methods.watch('genres').length > 0;
-      case STEPS[Step.YEAR]:
-        return methods.watch('releaseYear') !== undefined;
-      case STEPS[Step.RATING]:
-        return methods.watch('rating') !== 0 && methods.watch('runtime') !== 0;
-      case STEPS[Step.RESULTS]:
-        return true;
-      default:
-        return false;
-    }
-  };
-
-  const renderStep = () => {
+  const renderStep = (() => {
     switch (currentStep) {
       case STEPS[Step.GENRE]:
         return <Genre />;
@@ -97,7 +83,22 @@ const MovieRecommendPage = () => {
       default:
         return null;
     }
-  };
+  })();
+
+  const isStepValid = (() => {
+    switch (currentStep) {
+      case STEPS[Step.GENRE]:
+        return methods.watch('genres').length > 0;
+      case STEPS[Step.YEAR]:
+        return methods.watch('releaseYear') !== undefined;
+      case STEPS[Step.RATING]:
+        return methods.watch('rating') !== 0 && methods.watch('runtime') !== 0;
+      case STEPS[Step.RESULTS]:
+        return true;
+      default:
+        return false;
+    }
+  })();
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -105,29 +106,12 @@ const MovieRecommendPage = () => {
       <StepProgressBar currentStep={currentStep} />
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit)} className="space-y-6">
-          {renderStep()}
-          <div className="flex justify-between mt-8">
-            {currentStep > STEPS[Step.GENRE] && (
-              <button
-                type="button"
-                onClick={() => setCurrentStep((prev) => prev - 1)}
-                className="px-6 py-2 border rounded hover:bg-gray-100"
-              >
-                이전
-              </button>
-            )}
-            <button
-              type="submit"
-              disabled={!isStepValid()}
-              className={`px-6 py-2 rounded transition-colors ${
-                isStepValid()
-                  ? 'bg-blue-500 text-white hover:bg-blue-600'
-                  : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-              }`}
-            >
-              {currentStep === STEPS[Step.RESULTS] ? '다시 시작' : '다음'}
-            </button>
-          </div>
+          {renderStep}
+          <StepControlAndSubmitButton
+            currentStep={currentStep}
+            setCurrentStep={setCurrentStep}
+            isStepValid={isStepValid}
+          />
         </form>
       </FormProvider>
     </div>
