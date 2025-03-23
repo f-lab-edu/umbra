@@ -8,6 +8,7 @@ import LoginPage from './app/login/page';
 import LoginFallbackPage from './app/login/fallback/page';
 import { ModalProvider } from './components/modal-provider';
 import { MovieDetailPage } from './app/movieDetail/page';
+import { MovieRecommendPage } from './app/movieRecommend/page';
 
 // TODO: 타입 설정 방법 찾기
 // @ts-ignore
@@ -28,6 +29,7 @@ const App = () => {
               <Route path="/login" element={<LoginPage />} />
               <Route path="/loginfallback" element={<LoginFallbackPage />} />
               <Route path="/movie/:id" element={<MovieDetailPage />} />
+              <Route path="/movie-recommend" element={<MovieRecommendPage />} />
             </Route>
           </Routes>
         </BrowserRouter>
