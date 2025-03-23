@@ -10,6 +10,7 @@ module.exports = {
     path: path.resolve(__dirname, '../dist'),
     filename: 'bundle.js',
     clean: true,
+    publicPath: 'auto',
   },
   resolve: {
     alias: {
@@ -45,7 +46,7 @@ module.exports = {
   plugins: [
     new rspack.container.ModuleFederationPlugin({
       name: 'movie',
-      filename: 'movie.remoteEntry.js',
+      filename: 'remoteEntry.js',
       exposes: {
         './movie': './src/movie',
       },
@@ -58,6 +59,11 @@ module.exports = {
         'react-dom': {
           singleton: true,
           requiredVersion: '^19.0.0',
+          eager: true,
+        },
+        'react-router': {
+          singleton: true,
+          requiredVersion: '^7.1.1',
           eager: true,
         },
         '@tanstack/react-query': {

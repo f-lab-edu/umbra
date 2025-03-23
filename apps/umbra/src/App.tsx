@@ -3,11 +3,11 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import MainLayout from './app/layout';
-
 import SearchPage from './app/search/page';
 import LoginPage from './app/login/page';
 import LoginFallbackPage from './app/login/fallback/page';
 import { ModalProvider } from './components/modal-provider';
+import { MovieDetailPage } from './app/movieDetail/page';
 
 // TODO: 타입 설정 방법 찾기
 // @ts-ignore
@@ -27,6 +27,7 @@ const App = () => {
               <Route path="/search" element={<SearchPage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/loginfallback" element={<LoginFallbackPage />} />
+              <Route path="/movie/:id" element={<MovieDetailPage />} />
             </Route>
           </Routes>
         </BrowserRouter>

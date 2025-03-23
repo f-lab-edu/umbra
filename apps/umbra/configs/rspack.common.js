@@ -10,6 +10,7 @@ module.exports = {
     path: path.resolve(__dirname, '../dist'),
     filename: 'bundle.js',
     clean: true,
+    publicPath: '/',
   },
   resolve: {
     alias: {
@@ -46,7 +47,7 @@ module.exports = {
     new rspack.container.ModuleFederationPlugin({
       name: 'umbra',
       remotes: {
-        movie: 'movie@http://localhost:3001/movie.remoteEntry.js',
+        movie: 'movie@http://localhost:3001/remoteEntry.js',
       },
       shared: {
         react: {
@@ -57,6 +58,11 @@ module.exports = {
         'react-dom': {
           singleton: true,
           requiredVersion: '^19.0.0',
+          eager: true,
+        },
+        'react-router': {
+          singleton: true,
+          requiredVersion: '^7.1.1',
           eager: true,
         },
         '@tanstack/react-query': {

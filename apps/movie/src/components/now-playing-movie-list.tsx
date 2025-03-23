@@ -15,7 +15,7 @@ const NowPlayingMovieList = () => {
   return (
     <>
       {data.pages.map((item) => {
-        return <MovieItem key={item.id} imageUrl={item.backdropPath} onClick={() => {}} />;
+        return <MovieItem id={item.id} key={item.id} imageUrl={item.backdropPath} />;
       })}
       <div ref={ref} className="w-0 h-0" />
     </>
