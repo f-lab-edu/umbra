@@ -2,6 +2,8 @@ import React, { KeyboardEventHandler, useEffect } from 'react';
 import { SearchInput } from '../search/components/search-input';
 import { useLocation, useNavigate } from 'react-router';
 import { LoginInfo } from './login-info';
+import { NotificationBell } from './notification-bell';
+import { Link } from 'react-router';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -31,6 +33,10 @@ const Header = () => {
           </div>
         )}
         <LoginInfo />
+        <NotificationBell />
+        <Link to="/bookmarks" className="text-gray-600 hover:text-gray-900">
+          북마크
+        </Link>
       </div>
     </header>
   );
