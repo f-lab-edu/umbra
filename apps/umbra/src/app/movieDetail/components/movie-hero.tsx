@@ -1,7 +1,8 @@
 import React from 'react';
 import { useMovieBasicInfo } from '../hooks/use-movie-basic-Info';
+import { BookmarkButton } from '../../bookmarks/components/bookmark-button';
 
-export const MovieHero = ({ movieId }: { movieId: string }) => {
+const MovieHero = ({ movieId }: { movieId: string }) => {
   const { data: movieDetail } = useMovieBasicInfo(movieId);
 
   return (
@@ -29,9 +30,12 @@ export const MovieHero = ({ movieId }: { movieId: string }) => {
                 <span>•</span>
                 <span>{movieDetail.genres.map((genre) => genre.name).join(', ')}</span>
               </div>
-              <div className="flex items-center gap-2">
-                <div className="bg-yellow-400 text-black px-2 py-1 rounded font-bold">TMDb</div>
-                <span className="text-xl font-bold">{movieDetail.voteAverage.toFixed(1)}</span>
+              <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2">
+                  <div className="bg-yellow-400 text-black px-2 py-1 rounded font-bold">TMDb</div>
+                  <span className="text-xl font-bold">{movieDetail.voteAverage.toFixed(1)}</span>
+                </div>
+                <BookmarkButton movie={movieDetail} />
               </div>
             </div>
           </div>
@@ -40,3 +44,5 @@ export const MovieHero = ({ movieId }: { movieId: string }) => {
     </div>
   );
 };
+
+export { MovieHero };
