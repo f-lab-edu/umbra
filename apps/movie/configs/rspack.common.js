@@ -71,6 +71,11 @@ module.exports = {
           requiredVersion: '^5.62.11',
           eager: true,
         },
+        nuqs: {
+          singleton: true,
+          requiredVersion: '^2.4.1',
+          eager: true,
+        },
       },
     }),
     new HtmlWebpackPlugin({
