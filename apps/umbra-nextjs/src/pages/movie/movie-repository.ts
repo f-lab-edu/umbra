@@ -1,4 +1,4 @@
-import { umbraApi } from '@/lib/umbraApi';
+import { umbraApi } from '@/lib/umbra-api';
 import { convertSnakeToCamelCase } from '@/lib/convert-snake-to-camel-case';
 
 interface Movie {
