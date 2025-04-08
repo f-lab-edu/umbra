@@ -1,13 +1,10 @@
 import React from 'react';
 import { MovieDetailsApiResponse, MovieKeywordsResponse } from '../../movie-detail-repository';
 
-const MovieOverview = ({
-  movieDetail,
-  keywordsData,
-}: {
+const MovieOverview: React.FC<{
   movieDetail: MovieDetailsApiResponse;
   keywordsData: MovieKeywordsResponse;
-}) => {
+}> = ({ movieDetail, keywordsData }) => {
   return (
     <section className="bg-white rounded-lg p-8 shadow-md mb-8">
       <h2 className="text-2xl font-bold mb-4">개요</h2>

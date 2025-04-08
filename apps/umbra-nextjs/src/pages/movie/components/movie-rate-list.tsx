@@ -3,7 +3,7 @@ import { useGetMovieTopRated } from '../hooks/use-get-movie-top-rated';
 import { MovieItem } from './movie-item';
 import type { Movie } from '../movie-repository';
 
-const MovieRateList = () => {
+const MovieRateList: React.FC = () => {
   const { data } = useGetMovieTopRated();
 
   return (

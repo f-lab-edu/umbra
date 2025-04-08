@@ -1,7 +1,7 @@
 import { MovieCreditsApiResponse } from '../../movie-detail-repository';
 import Image from 'next/image';
 
-const MovieCast = ({ credits }: { credits: MovieCreditsApiResponse }) => {
+const MovieCast: React.FC<{ credits: MovieCreditsApiResponse }> = ({ credits }) => {
   return (
     <section className="bg-white rounded-lg p-8 shadow-md mb-8">
       <h2 className="text-2xl font-bold mb-6">주요 출연진</h2>

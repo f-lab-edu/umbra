@@ -1,13 +1,10 @@
 import React from 'react';
 import { MovieCreditsApiResponse, MovieDetailsApiResponse } from '../../movie-detail-repository';
 
-const MovieSidebar = ({
-  movieDetail,
-  credits,
-}: {
+const MovieSidebar: React.FC<{
   movieDetail: MovieDetailsApiResponse;
   credits: MovieCreditsApiResponse;
-}) => {
+}> = ({ movieDetail, credits }) => {
   const director = credits.crew.find((person) => person.job === 'Director');
 
   return (

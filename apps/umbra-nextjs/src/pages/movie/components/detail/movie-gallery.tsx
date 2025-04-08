@@ -1,7 +1,7 @@
 import { MovieImagesResponse } from '../../movie-detail-repository';
 import Image from 'next/image';
 
-export const MovieGallery = ({ movieImages }: { movieImages: MovieImagesResponse }) => {
+export const MovieGallery: React.FC<{ movieImages: MovieImagesResponse }> = ({ movieImages }) => {
   return (
     <section className="bg-white rounded-lg p-8 shadow-md mb-8">
       <h2 className="text-2xl font-bold mb-6">갤러리</h2>

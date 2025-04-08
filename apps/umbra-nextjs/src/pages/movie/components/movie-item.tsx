@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-const MovieItem = ({ id, imageUrl }: { id: number; imageUrl: string }) => {
+const MovieItem: React.FC<{ id: number; imageUrl: string }> = ({ id, imageUrl }) => {
   return (
     <Link href={`/movie/${id}`}>
       <div className="w-full h-full aspect-video rounded-lg overflow-hidden cursor-pointer transition duration-300 ease-in-out hover:brightness-75">

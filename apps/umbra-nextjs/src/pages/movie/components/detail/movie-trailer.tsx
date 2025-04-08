@@ -1,6 +1,6 @@
 import { MovieVideosApiResponse } from '../../movie-detail-repository';
 
-const MovieTrailer = ({ videos }: { videos: MovieVideosApiResponse }) => {
+const MovieTrailer: React.FC<{ videos: MovieVideosApiResponse }> = ({ videos }) => {
   const trailer = videos.results.find((video) => video.type === 'Trailer' && video.site === 'YouTube');
 
   if (!trailer) return null;

@@ -1,7 +1,8 @@
 import { BookmarkButton } from '@/pages/bookmarks/components/bookmark-button';
 import { MovieDetailsApiResponse } from '../../movie-detail-repository';
 import Image from 'next/image';
-const MovieHero = ({ movieDetail }: { movieDetail: MovieDetailsApiResponse }) => {
+
+const MovieHero: React.FC<{ movieDetail: MovieDetailsApiResponse }> = ({ movieDetail }) => {
   return (
     <div
       className="relative h-[60vh] bg-cover bg-center"

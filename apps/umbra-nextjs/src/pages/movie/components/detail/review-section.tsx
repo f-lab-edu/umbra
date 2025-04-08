@@ -16,7 +16,7 @@ interface Review {
   url: string;
 }
 
-export const ReviewSection = ({ reviewInfo }: { reviewInfo: MovieReviewsResponse }) => {
+export const ReviewSection: React.FC<{ reviewInfo: MovieReviewsResponse }> = ({ reviewInfo }) => {
   if (!reviewInfo || reviewInfo.results.length === 0) {
     return <div className="text-gray-500">아직 작성된 리뷰가 없습니다.</div>;
   }
@@ -33,7 +33,7 @@ export const ReviewSection = ({ reviewInfo }: { reviewInfo: MovieReviewsResponse
   );
 };
 
-const ReviewCard = ({ review }: { review: Review }) => {
+const ReviewCard: React.FC<{ review: Review }> = ({ review }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (

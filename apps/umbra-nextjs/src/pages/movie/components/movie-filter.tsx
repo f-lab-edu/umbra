@@ -24,17 +24,12 @@ const dropdownStyles =
   'absolute z-50 mt-2 w-64 bg-gray-800/95 backdrop-blur rounded-lg shadow-lg max-h-96 overflow-y-auto border border-gray-700/50';
 const optionStyles = 'flex items-center p-2 hover:bg-gray-600/80 rounded cursor-pointer transition-colors';
 
-const FilterButton = ({
-  label,
-  count,
-  isOpen,
-  onClick,
-}: {
+const FilterButton: React.FC<{
   label: string;
   count?: number;
   isOpen: boolean;
   onClick: () => void;
-}) => (
+}> = ({ label, count, isOpen, onClick }) => (
   <button className={`${buttonStyles} min-w-[120px] flex items-center justify-between`} onClick={onClick}>
     <span>
       {label} {count ? `(${count})` : ''}
@@ -50,17 +45,12 @@ const FilterButton = ({
   </button>
 );
 
-const MultiSelectDropdown = ({
-  isOpen,
-  options,
-  selectedValues,
-  onChange,
-}: {
+const MultiSelectDropdown: React.FC<{
   isOpen: boolean;
   options: { id: number; name: string }[];
   selectedValues: number[];
   onChange: (value: number) => void;
-}) => {
+}> = ({ isOpen, options, selectedValues, onChange }) => {
   if (!isOpen) return null;
 
   return (
@@ -82,15 +72,11 @@ const MultiSelectDropdown = ({
   );
 };
 
-const SelectFilter = ({
-  value,
-  onChange,
-  options,
-}: {
+const SelectFilter: React.FC<{
   value: string;
   onChange: (value: string) => void;
   options: { value: string; label: string }[];
-}) => (
+}> = ({ value, onChange, options }) => (
   <select value={value} onChange={(e) => onChange(e.target.value)} className={buttonStyles}>
     {options.map((option) => (
       <option key={option.value} value={option.value}>
@@ -100,7 +86,7 @@ const SelectFilter = ({
   </select>
 );
 
-const MovieFilter = () => {
+const MovieFilter: React.FC = () => {
   const { data: genres } = useGetGenres();
   const [{ genres: selectedGenres, sort_by: sortBy, vote_average: voteAverage }, setFilters] = useMovieFilters();
 

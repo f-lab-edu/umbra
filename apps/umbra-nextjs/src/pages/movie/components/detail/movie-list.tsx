@@ -1,7 +1,7 @@
 import { MovieListResponse } from '../../movie-detail-repository';
 import Image from 'next/image';
 
-const MovieList = ({ title, movieList }: { title: string; movieList: MovieListResponse }) => {
+const MovieList: React.FC<{ title: string; movieList: MovieListResponse }> = ({ title, movieList }) => {
   if (movieList.results.length === 0) return null;
 
   return (
