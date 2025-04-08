@@ -2,15 +2,11 @@ import React from 'react';
 import { STEPS } from '../constants';
 import { Step } from '../constants';
 
-const StepControlAndSubmitButton = ({
-  currentStep,
-  setCurrentStep,
-  isStepValid,
-}: {
+const StepControlAndSubmitButton: React.FC<{
   currentStep: number;
   setCurrentStep: (value: number | ((prev: number) => number)) => void;
   isStepValid: boolean;
-}) => {
+}> = ({ currentStep, setCurrentStep, isStepValid }) => {
   return (
     <div className="flex justify-between mt-8">
       {currentStep > STEPS[Step.GENRE] && (

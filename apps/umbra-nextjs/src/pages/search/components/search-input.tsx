@@ -5,13 +5,10 @@ import { useKeyboardNavigation } from '../hooks/use-keyboard-navigation';
 import { SearchAutoCompleteResult } from './search-auto-complete-result';
 import { useSearchInput } from '../hooks/use-search-input';
 
-const SearchInput = ({
-  initInputValue,
-  onKeyDown,
-}: {
+const SearchInput: React.FC<{
   initInputValue: string;
   onKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => void;
-}) => {
+}> = ({ initInputValue, onKeyDown }) => {
   const {
     searchKeyword,
     isSearchInputFocused,

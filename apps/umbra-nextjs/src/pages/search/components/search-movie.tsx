@@ -2,7 +2,7 @@ import React from 'react';
 import { Movie } from '../search-repository';
 import { LazyImage } from './lazy-image';
 
-const SearchMovie = ({ movieList }: { movieList: Movie[] }) => {
+const SearchMovie: React.FC<{ movieList: Movie[] }> = ({ movieList }) => {
   if (movieList.length === 0) {
     return <>검색결과 없음</>;
   }
@@ -16,7 +16,7 @@ const SearchMovie = ({ movieList }: { movieList: Movie[] }) => {
   );
 };
 
-const MovieItem = ({ originalTitle, posterPath }: Movie) => {
+const MovieItem: React.FC<Movie> = ({ originalTitle, posterPath }) => {
   return (
     <div className="flex flex-col justify-center items-center">
       <div className="overflow-hidden w-[200px] h-[200px] rounded-lg">

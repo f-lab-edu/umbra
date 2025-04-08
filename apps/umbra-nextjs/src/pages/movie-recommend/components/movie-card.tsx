@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Movie } from '../types';
 
-const MovieCard = ({ movie }: { movie: Movie }) => {
+const MovieCard: React.FC<{ movie: Movie }> = ({ movie }) => {
   const posterPath = movie.posterPath ? `https://image.tmdb.org/t/p/w500${movie.posterPath}` : '/images/no-poster.png';
 
   const releaseDate = movie.releaseDate

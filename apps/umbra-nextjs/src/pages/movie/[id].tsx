@@ -73,6 +73,7 @@ export const getServerSideProps: GetServerSideProps<{
 }> = async (context) => {
   const id: string = String(context.params?.id ?? '');
 
+  // TODO: api 를 너무 많은 요청을 하는데 app router 기능중 부분 렌더링?!을 할 수 있는 방법이 있을까?! (CSR 이면 가능할텐데 SSR인 경우는 어떻게 해야 할지 고민중,,,)
   const movieDetail = await movieDetailRepository.getMovieDetail({ id: id });
   const keywordsData = await movieDetailRepository.getMovieKeywords({ id: id });
   const creditsData = await movieDetailRepository.getMovieCredits({ id: id });

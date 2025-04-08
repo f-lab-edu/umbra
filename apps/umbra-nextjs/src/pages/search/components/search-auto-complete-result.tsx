@@ -5,15 +5,11 @@ import { useGetSearchMulti } from '../hooks/use-get-search-multi';
 
 const SEARCH_CATEGORIES: SearchCategory[] = ['movies', 'tvs', 'persons'];
 
-const SearchAutoCompleteResult = ({
-  searchKeyword,
-  isValidSearchInput,
-  onItemSelect,
-}: {
+const SearchAutoCompleteResult: React.FC<{
   searchKeyword: string;
   isValidSearchInput: boolean;
   onItemSelect: (title: string) => void;
-}) => {
+}> = ({ searchKeyword, isValidSearchInput, onItemSelect }) => {
   const [isSearchResultBoxFocused, setIsSearchResultBoxFocused] = useState(false);
   const { data, isSuccess } = useGetSearchMulti({ keyword: searchKeyword });
   const handleMouseEnter = () => {

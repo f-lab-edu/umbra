@@ -2,7 +2,7 @@ import React from 'react';
 import { Person } from '../search-repository';
 import { LazyImage } from './lazy-image';
 
-const SearchPerson = ({ personList }: { personList: Person[] }) => {
+const SearchPerson: React.FC<{ personList: Person[] }> = ({ personList }) => {
   if (personList.length === 0) {
     return <div>검색결과 없음</div>;
   }
@@ -16,7 +16,7 @@ const SearchPerson = ({ personList }: { personList: Person[] }) => {
   );
 };
 
-const PersonItem = ({ profilePath, originalName }: Person) => {
+const PersonItem: React.FC<Person> = ({ profilePath, originalName }) => {
   return (
     <div className="flex flex-col justify-center items-center">
       <div className="overflow-hidden w-[200px] h-[200px] rounded-full">

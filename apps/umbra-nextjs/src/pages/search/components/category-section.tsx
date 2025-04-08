@@ -18,15 +18,11 @@ const CATEGORY_NAME_INFO: Record<SearchCategory, string> = {
   persons: '인물',
 } as const;
 
-const AutoCompleteCategorySection = ({
-  category,
-  items,
-  onItemClick,
-}: {
+const AutoCompleteCategorySection: React.FC<{
   category: SearchCategory;
   items: Movie[] | Tv[] | Person[];
   onItemClick: (title: string) => void;
-}) => {
+}> = ({ category, items, onItemClick }) => {
   const handleFocus = (event: FocusEvent<HTMLLIElement>) => {
     const prevFocusedElement = document.querySelector('[data-state="focused"]');
     if (prevFocusedElement) {

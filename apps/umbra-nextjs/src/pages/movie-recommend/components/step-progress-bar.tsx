@@ -1,7 +1,7 @@
 import React from 'react';
 import { STEPS } from '../constants';
 
-const StepProgressBar = ({ currentStep }: { currentStep: number }) => {
+const StepProgressBar: React.FC<{ currentStep: number }> = ({ currentStep }) => {
   return (
     <div className="mb-8">
       <div className="flex justify-between mb-4">

@@ -2,7 +2,7 @@ import React from 'react';
 import { Tv } from '../search-repository';
 import { LazyImage } from './lazy-image';
 
-const SearchTv = ({ tvList }: { tvList: Tv[] }) => {
+const SearchTv: React.FC<{ tvList: Tv[] }> = ({ tvList }) => {
   if (tvList.length === 0) {
     return <>검색결과 없음</>;
   }
@@ -16,7 +16,7 @@ const SearchTv = ({ tvList }: { tvList: Tv[] }) => {
   );
 };
 
-const TvItem = ({ originalName, posterPath }: Tv) => {
+const TvItem: React.FC<Tv> = ({ originalName, posterPath }) => {
   return (
     <div className="flex flex-col justify-center items-center">
       <div className="overflow-hidden w-[200px] h-[200px] rounded-lg">
