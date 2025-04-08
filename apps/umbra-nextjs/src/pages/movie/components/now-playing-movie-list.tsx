@@ -3,6 +3,9 @@ import { MovieItem } from './movie-item';
 import { useInView } from '@/hooks/use-in-view';
 import { MovieFilter } from './movie-filter';
 import { useMovieFilters } from '@/pages/movie/hooks/use-movie-filters';
+import { Suspense } from 'react';
+import { ErrorBoundary } from '@/pages/search/components/error-boundary';
+import { ErrorFallback } from './error-fallback';
 
 const MovieList = () => {
   const [{ genres, sort_by: sortBy, vote_average: voteAverage }] = useMovieFilters();
@@ -19,7 +22,11 @@ const MovieList = () => {
 
   return (
     <div className="flex flex-col">
-      <MovieFilter />
+      <ErrorBoundary fallback={<ErrorFallback onRetry={() => {}} />}>
+        <Suspense>
+          <MovieFilter />
+        </Suspense>
+      </ErrorBoundary>
       <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
         {data?.pages.map((page) =>
           page.results.map((movie) => (

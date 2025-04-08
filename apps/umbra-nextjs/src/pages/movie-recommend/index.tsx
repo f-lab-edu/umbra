@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Suspense, useState } from 'react';
 import { StepProgressBar } from './components/step-progress-bar';
 import { FormProvider, useForm } from 'react-hook-form';
 import { STEPS, Step } from './constants';
@@ -10,6 +10,8 @@ import { MovieCard } from './components/movie-card';
 
 import type { MovieDiscoverParams, MovieRecommendationForm } from './types';
 import { StepControlAndSubmitButton } from './components/step-control-and-submit-button';
+import { ErrorBoundary } from '../movie/components/error-boundary';
+import { ErrorFallback } from '../movie/components/error-fallback';
 
 const MovieRecommendPage = () => {
   const [currentStep, setCurrentStep] = useState<number>(0);
@@ -69,7 +71,13 @@ const MovieRecommendPage = () => {
   const renderStep = (() => {
     switch (currentStep) {
       case STEPS[Step.GENRE]:
-        return <Genre />;
+        return (
+          <ErrorBoundary fallback={<ErrorFallback onRetry={() => {}} />}>
+            <Suspense>
+              <Genre />
+            </Suspense>
+          </ErrorBoundary>
+        );
       case STEPS[Step.YEAR]:
         return <Year />;
       case STEPS[Step.RATING]:

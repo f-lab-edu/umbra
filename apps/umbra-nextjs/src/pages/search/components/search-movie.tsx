@@ -1,6 +1,6 @@
 import React from 'react';
 import { Movie } from '../search-repository';
-import { LazyImage } from './lazy-image';
+import Image from 'next/image';
 
 const SearchMovie: React.FC<{ movieList: Movie[] }> = ({ movieList }) => {
   if (movieList.length === 0) {
@@ -20,7 +20,7 @@ const MovieItem: React.FC<Movie> = ({ originalTitle, posterPath }) => {
   return (
     <div className="flex flex-col justify-center items-center">
       <div className="overflow-hidden w-[200px] h-[200px] rounded-lg">
-        <LazyImage alt="영화 이미지" src={`https://image.tmdb.org/t/p/w300/${posterPath}`} />
+        <Image alt="영화 이미지" src={`https://image.tmdb.org/t/p/w300/${posterPath}`} width={300} height={300} />
       </div>
       <div className="mt-5 text-xl font-bold">{originalTitle}</div>
     </div>

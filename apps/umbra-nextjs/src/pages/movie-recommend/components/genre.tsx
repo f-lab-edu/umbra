@@ -5,7 +5,7 @@ import { MovieRecommendationForm } from '../types';
 
 const Genre = () => {
   const { setValue, watch } = useFormContext<MovieRecommendationForm>();
-  const { data: genresData } = useGetGenre();
+  const { data: genresData } = useGetGenre({ page: 'movie-recommend' });
 
   const selectedGenres = watch('genres');
   const isAllSelected = selectedGenres.length === genresData?.genres.length;
