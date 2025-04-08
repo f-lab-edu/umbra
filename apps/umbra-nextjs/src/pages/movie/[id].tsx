@@ -60,6 +60,7 @@ const MovieDetailPage = ({
   );
 };
 
+// TODO: 애러 및 로딩 처리 방법... app router 인 경우는 loading.tsx, error.tsx 를 사용하는데 이 경우는 어떻게 해야할지 고민중
 export const getServerSideProps: GetServerSideProps<{
   movieDetail: MovieDetailsApiResponse;
   keywordsData: MovieKeywordsResponse;
@@ -70,20 +71,16 @@ export const getServerSideProps: GetServerSideProps<{
   similarMovies: MovieListResponse;
   recommendations: MovieListResponse;
 }> = async (context) => {
-  const id = context.params?.id ?? '';
+  const id: string = String(context.params?.id ?? '');
 
-  if (id === '') {
-    return { notFound: true };
-  }
-
-  const movieDetail = await movieDetailRepository.getMovieDetail({ id: id as string });
-  const keywordsData = await movieDetailRepository.getMovieKeywords({ id: id as string });
-  const creditsData = await movieDetailRepository.getMovieCredits({ id: id as string });
-  const videosData = await movieDetailRepository.getMovieVideos({ id: id as string });
-  const reviewInfo = await movieDetailRepository.getMovieReviews({ id: id as string });
-  const movieImages = await movieDetailRepository.getMovieImages({ id: id as string });
-  const similarMovies = await movieDetailRepository.getSimilarMovies({ id: id as string });
-  const recommendations = await movieDetailRepository.getMovieRecommendations({ id: id as string });
+  const movieDetail = await movieDetailRepository.getMovieDetail({ id: id });
+  const keywordsData = await movieDetailRepository.getMovieKeywords({ id: id });
+  const creditsData = await movieDetailRepository.getMovieCredits({ id: id });
+  const videosData = await movieDetailRepository.getMovieVideos({ id: id });
+  const reviewInfo = await movieDetailRepository.getMovieReviews({ id: id });
+  const movieImages = await movieDetailRepository.getMovieImages({ id: id });
+  const similarMovies = await movieDetailRepository.getSimilarMovies({ id: id });
+  const recommendations = await movieDetailRepository.getMovieRecommendations({ id: id });
 
   return {
     props: {
