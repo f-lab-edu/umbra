@@ -1,4 +1,5 @@
 import { MovieListResponse } from '../../movie-detail-repository';
+import Image from 'next/image';
 
 const MovieList = ({ title, movieList }: { title: string; movieList: MovieListResponse }) => {
   if (movieList.results.length === 0) return null;
@@ -10,14 +11,12 @@ const MovieList = ({ title, movieList }: { title: string; movieList: MovieListRe
         {movieList.results.slice(0, 8).map((movie) => (
           <div key={movie.id} className="text-center">
             <div className="aspect-[2/3] mb-2">
-              <img
-                src={
-                  movie.posterPath
-                    ? `https://image.tmdb.org/t/p/w342${movie.posterPath}`
-                    : 'https://via.placeholder.com/342x513'
-                }
+              <Image
+                src={`https://image.tmdb.org/t/p/w342${movie.posterPath}`}
                 alt={movie.title}
                 className="w-full h-full object-cover rounded"
+                width={342}
+                height={513}
               />
             </div>
             <h3 className="font-semibold truncate">{movie.title}</h3>

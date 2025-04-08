@@ -1,4 +1,5 @@
 import { MovieCreditsApiResponse } from '../../movie-detail-repository';
+import Image from 'next/image';
 
 const MovieCast = ({ credits }: { credits: MovieCreditsApiResponse }) => {
   return (
@@ -8,14 +9,12 @@ const MovieCast = ({ credits }: { credits: MovieCreditsApiResponse }) => {
         {credits.cast.slice(0, 8).map((person) => (
           <div key={person.id} className="text-center">
             <div className="aspect-[2/3] mb-2">
-              <img
-                src={
-                  person.profilePath
-                    ? `https://image.tmdb.org/t/p/w185${person.profilePath}`
-                    : 'https://via.placeholder.com/185x278'
-                }
+              <Image
+                src={`https://image.tmdb.org/t/p/w185${person.profilePath}`}
                 alt={person.name}
                 className="w-full h-full object-cover rounded"
+                width={185}
+                height={278}
               />
             </div>
             <h3 className="font-semibold">{person.name}</h3>

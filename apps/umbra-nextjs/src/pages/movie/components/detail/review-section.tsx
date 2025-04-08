@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MovieReviewsResponse } from '../../movie-detail-repository';
-
+import Image from 'next/image';
 interface Review {
   author: string;
   authorDetails: {
@@ -41,10 +41,12 @@ const ReviewCard = ({ review }: { review: Review }) => {
       <div className="flex items-center space-x-4">
         <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-100">
           {review.authorDetails.avatarPath ? (
-            <img
+            <Image
               src={`https://image.tmdb.org/t/p/w45${review.authorDetails.avatarPath}`}
               alt={review.author}
               className="w-full h-full object-cover"
+              width={45}
+              height={45}
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center text-xl font-bold text-gray-500 bg-gray-200">

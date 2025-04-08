@@ -1,15 +1,17 @@
 import Link from 'next/link';
-import { LazyImage } from './lazy-image';
+import Image from 'next/image';
 
 const MovieItem = ({ id, imageUrl }: { id: number; imageUrl: string }) => {
   return (
     <Link href={`/movie/${id}`}>
       <div className="w-full h-full aspect-video rounded-lg overflow-hidden cursor-pointer transition duration-300 ease-in-out hover:brightness-75">
-        <LazyImage
+        <Image
           className="w-full h-full"
           alt={'movie'}
+          priority={true}
           src={`https://image.tmdb.org/t/p/w300/${imageUrl}`}
-          srcSet={`https://image.tmdb.org/t/p/w300/${imageUrl} 300w, https://image.tmdb.org/t/p/w780/${imageUrl} 780w, https://image.tmdb.org/t/p/w1280/${imageUrl} 1280w`}
+          width={300}
+          height={300}
         />
       </div>
     </Link>

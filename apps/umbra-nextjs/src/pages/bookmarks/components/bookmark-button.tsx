@@ -1,7 +1,7 @@
 import React from 'react';
 import { useBookmarkStore } from '../../bookmarks/store/bookmark-store';
 import { useNotificationStore } from '../../bookmarks/store/notification-store';
-import { MovieDetailsApiResponse } from '../../movieDetail/movie-detail-repository';
+import { MovieDetailsApiResponse } from '../../movie/movie-detail-repository';
 
 const BookmarkButton = ({ movie }: { movie: MovieDetailsApiResponse }) => {
   const { addBookmark, removeBookmark, isBookmarked } = useBookmarkStore();
