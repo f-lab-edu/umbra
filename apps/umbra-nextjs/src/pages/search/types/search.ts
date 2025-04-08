@@ -16,6 +16,11 @@ interface Person {
   profilePath: string;
 }
 
+interface SearchResult {
+  profilePath: string;
+  name: string;
+}
+
 type SearchCategory = 'movies' | 'tvs' | 'persons';
 
-export type { Movie, Tv, Person, SearchCategory };
+export type { Movie, Tv, Person, SearchCategory, SearchResult };

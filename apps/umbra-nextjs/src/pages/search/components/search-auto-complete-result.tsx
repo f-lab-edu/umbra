@@ -12,6 +12,7 @@ const SearchAutoCompleteResult: React.FC<{
 }> = ({ searchKeyword, isValidSearchInput, onItemSelect }) => {
   const [isSearchResultBoxFocused, setIsSearchResultBoxFocused] = useState(false);
   const { data, isSuccess } = useGetSearchMulti({ keyword: searchKeyword });
+
   const handleMouseEnter = () => {
     setIsSearchResultBoxFocused(true);
   };
@@ -30,14 +31,33 @@ const SearchAutoCompleteResult: React.FC<{
           onMouseLeave={handleMouseLeave}
         >
           <ul className="divide-y divide-gray-100">
-            {SEARCH_CATEGORIES.map((category) => (
-              <AutoCompleteCategorySection
-                key={category}
-                category={category}
-                items={data[category]}
-                onItemClick={onItemSelect}
-              />
-            ))}
+            <AutoCompleteCategorySection
+              category={'movies'}
+              items={data.movies.map((movie) => ({
+                name: movie.originalTitle,
+                profilePath: movie.posterPath,
+              }))}
+              onItemClick={onItemSelect}
+              categoryName={'영화'}
+            />
+            <AutoCompleteCategorySection
+              category={'tvs'}
+              items={data.tvs.map((tv) => ({
+                name: tv.originalName,
+                profilePath: tv.posterPath,
+              }))}
+              onItemClick={onItemSelect}
+              categoryName={'TV 프로그램'}
+            />
+            <AutoCompleteCategorySection
+              category={'persons'}
+              items={data.persons.map((person) => ({
+                name: person.originalName,
+                profilePath: person.profilePath,
+              }))}
+              onItemClick={onItemSelect}
+              categoryName={'인물'}
+            />
           </ul>
         </div>
       )}

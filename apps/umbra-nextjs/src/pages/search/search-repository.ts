@@ -5,18 +5,21 @@ interface Person {
   mediaType: 'person';
   originalName: string;
   profilePath: string;
+  name: string;
 }
 
 interface Tv {
   mediaType: 'tv';
   originalName: string;
   posterPath: string;
+  name: string;
 }
 
 interface Movie {
   mediaType: 'movie';
   originalTitle: string;
   posterPath: string;
+  name: string;
 }
 
 interface SearchMultiResponse {
@@ -31,17 +34,32 @@ class SearchMultiResult {
   constructor(data: SearchMultiResponse) {
     data.results.forEach((item) => {
       if (item.mediaType === 'movie') {
-        this.movies.push(item);
+        const newItem = {
+          ...item,
+          name: item.originalTitle,
+        };
+
+        this.movies.push(newItem);
         return;
       }
 
       if (item.mediaType === 'tv') {
-        this.tvs.push(item);
+        const newItem = {
+          ...item,
+          name: item.originalName,
+        };
+
+        this.tvs.push(newItem);
         return;
       }
 
       if (item.mediaType === 'person') {
-        this.persons.push(item);
+        const newItem = {
+          ...item,
+          name: item.originalName,
+        };
+
+        this.persons.push(newItem);
         return;
       }
     });
