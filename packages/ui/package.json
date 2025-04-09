@@ -1,6 +1,12 @@
 {
-  "name": "@zaydenvc/ui",
+  "name": "@umbra/ui",
   "version": "5.0.0",
+  "exports": {
+    ".": {
+      "types": "./component/carousel.tsx",
+      "default": "./component/carousel.tsx"
+    }
+  },
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
@@ -17,7 +23,10 @@
     "prepare": "pnpm run build"
   },
   "peerDependencies": {
-    "react": "^19.0.0"
+    "react": "^18.3.1"
+  },
+  "dependencies": {
+    "react": "^18.3.1"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.4",

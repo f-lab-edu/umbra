@@ -52,12 +52,12 @@ module.exports = {
       shared: {
         react: {
           singleton: true,
-          requiredVersion: '^19.0.0',
+          requiredVersion: '^18.3.1',
           eager: true,
         },
         'react-dom': {
           singleton: true,
-          requiredVersion: '^19.0.0',
+          requiredVersion: '^18.3.1',
           eager: true,
         },
         'react-router': {
