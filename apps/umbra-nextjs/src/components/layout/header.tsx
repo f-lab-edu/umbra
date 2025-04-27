@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { NotificationBell } from './notification-bell';
 
 const Header = () => {
   return (

@@ -1,17 +1,17 @@
 import React, { Suspense, useState } from 'react';
-import { StepProgressBar } from './components/step-progress-bar';
+import { StepProgressBar } from '@/components/movie-recommand/components/step-progress-bar';
 import { FormProvider, useForm } from 'react-hook-form';
-import { STEPS, Step } from './constants';
-import { Genre } from './components/genre';
-import { Year } from './components/year';
-import { Rating } from './components/rating';
-import { useGetMovies } from './hooks/use-get-movies';
-import { MovieCard } from './components/movie-card';
+import { STEPS, Step } from '@/components/movie-recommand/constants';
+import { Genre } from '@/components/movie-recommand/components/genre';
+import { Year } from '@/components/movie-recommand/components/year';
+import { Rating } from '@/components/movie-recommand/components/rating';
+import { useGetMovies } from '@/components/movie-recommand/hooks/use-get-movies';
+import { MovieCard } from '@/components/movie-recommand/components/movie-card';
 
-import type { MovieDiscoverParams, MovieRecommendationForm } from './types';
-import { StepControlAndSubmitButton } from './components/step-control-and-submit-button';
-import { ErrorBoundary } from '../movie/components/error-boundary';
-import { ErrorFallback } from '../movie/components/error-fallback';
+import type { Movie, MovieDiscoverParams, MovieRecommendationForm } from '@/components/movie-recommand/types';
+import { StepControlAndSubmitButton } from '@/components/movie-recommand/components/step-control-and-submit-button';
+import { ErrorBoundary } from '@/components/movie/components/error-boundary';
+import { ErrorFallback } from '@/components/movie/components/error-fallback';
 
 const MovieRecommendPage = () => {
   const [currentStep, setCurrentStep] = useState<number>(0);
@@ -85,7 +85,7 @@ const MovieRecommendPage = () => {
       case STEPS[Step.RESULTS]:
         return (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {moviesData?.results.map((movie) => (
+            {moviesData?.results.map((movie: Movie) => (
               <MovieCard key={movie.id} movie={movie} />
             ))}
           </div>

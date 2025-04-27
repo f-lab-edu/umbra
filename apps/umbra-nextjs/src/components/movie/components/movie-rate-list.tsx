@@ -1,7 +1,7 @@
 import { Carousel } from '@zaydenvc/ui';
 import { useGetMovieTopRated } from '../hooks/use-get-movie-top-rated';
 import { MovieItem } from './movie-item';
-import type { Movie } from '../movie-repository';
+import type { Movie } from '@/components/movie/movie-repository';
 
 const MovieRateList: React.FC = () => {
   const { data } = useGetMovieTopRated();

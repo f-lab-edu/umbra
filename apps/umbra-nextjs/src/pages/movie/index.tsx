@@ -1,9 +1,9 @@
 import { Suspense } from 'react';
-import { MovieList } from './components/now-playing-movie-list';
-import { ErrorBoundary } from './components/error-boundary';
-import { ErrorFallback } from './components/error-fallback';
+import { MovieList } from '@/components/movie/components/now-playing-movie-list';
+import { ErrorBoundary } from '@/components/movie/components/error-boundary';
+import { ErrorFallback } from '@/components/movie/components/error-fallback';
 import { useQueryClient } from '@tanstack/react-query';
-import { MovieRateList } from './components/movie-rate-list';
+import { MovieRateList } from '@/components/movie/components/movie-rate-list';
 
 const MoviePage = () => {
   const queryClient = useQueryClient();

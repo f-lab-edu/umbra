@@ -1,4 +1,4 @@
-import { SearchInputAndList } from './components/search-input-and-list';
+import { SearchInputAndList } from '@/components/search/components/search-input-and-list';
 
 const SearchPage = () => {
   return (

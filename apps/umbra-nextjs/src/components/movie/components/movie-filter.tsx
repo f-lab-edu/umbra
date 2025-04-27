@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useGetGenres } from '@/pages/movie/hooks/use-get-genres';
-import { useMovieFilters } from '@/pages/movie/hooks/use-movie-filters';
+import { useGetGenres } from '@/components/movie/hooks/use-get-genres';
+import { useMovieFilters } from '@/components/movie/hooks/use-movie-filters';
 
 // Constants
 const SORT_OPTIONS: Array<{ value: string; label: string }> = [
