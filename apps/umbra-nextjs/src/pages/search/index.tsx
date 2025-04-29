@@ -8,4 +8,8 @@ const SearchPage = () => {
   );
 };
 
+export const getServerSideProps = () => {
+  return { props: {} };
+};
+
 export default SearchPage;
