@@ -57,6 +57,9 @@ const movieRepository = {
 
     return umbraApi.get('/discover/movie', { params: queryParams }).then(({ data }) => convertSnakeToCamelCase(data));
   },
+
+  getPopularMovies: async () =>
+    umbraApi.get('/movie/popular').then(({ data }) => convertSnakeToCamelCase(data.results)),
 };
 
 export { movieRepository };
