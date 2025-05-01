@@ -8,15 +8,15 @@ import {
   MovieListResponse,
   MovieReviewsResponse,
   MovieVideosApiResponse,
-} from './movie-detail-repository';
-import { MovieHero } from './components/detail/movie-hero';
-import { MovieOverview } from './components/detail/movie-overview';
-import { MovieCast } from './components/detail/movie-cast';
-import { MovieTrailer } from './components/detail/movie-trailer';
-import { ReviewSection } from './components/detail/review-section';
-import { MovieGallery } from './components/detail/movie-gallery';
-import { MovieList } from './components/detail/movie-list';
-import { MovieSidebar } from './components/detail/movie-sidebar';
+} from '@/components/movie/movie-detail-repository';
+import { MovieHero } from '@/components/movie/components/detail/movie-hero';
+import { MovieOverview } from '@/components/movie/components/detail/movie-overview';
+import { MovieCast } from '@/components/movie/components/detail/movie-cast';
+import { MovieTrailer } from '@/components/movie/components/detail/movie-trailer';
+import { ReviewSection } from '@/components/movie/components/detail/review-section';
+import { MovieGallery } from '@/components/movie/components/detail/movie-gallery';
+import { MovieList } from '@/components/movie/components/detail/movie-list';
+import { MovieSidebar } from '@/components/movie/components/detail/movie-sidebar';
 
 const MovieDetailPage = ({
   movieDetail,

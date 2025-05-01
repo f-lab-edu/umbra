@@ -18,16 +18,16 @@ interface NotificationStore {
   unreadCount: number;
 }
 
-const getInitialState = (): Notification[] => {
-  const stored = localStorage.getItem('movie-notifications');
-  if (!stored) return [];
-  return JSON.parse(stored).state?.notifications || [];
-};
+// const getInitialState = (): Notification[] => {
+//   const stored = localStorage.getItem('movie-notifications');
+//   if (!stored) return [];
+//   return JSON.parse(stored).state?.notifications || [];
+// };
 
 const useNotificationStore = create<NotificationStore>()(
   persist(
     (set, get) => ({
-      notifications: getInitialState(),
+      notifications: [],
       addNotification: (notification) => {
         const newNotification: Notification = {
           ...notification,

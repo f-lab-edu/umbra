@@ -1,5 +1,5 @@
 import { useSuspenseQuery } from '@tanstack/react-query';
-import { movieRepository } from '@/pages/movie/movie-repository';
+import { movieRepository } from '@/components/movie/movie-repository';
 
 const useGetGenres = () => {
   return useSuspenseQuery({

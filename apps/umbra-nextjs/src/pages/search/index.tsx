@@ -1,4 +1,4 @@
-import { SearchInputAndList } from './components/search-input-and-list';
+import { SearchInputAndList } from '@/components/search/components/search-input-and-list';
 
 const SearchPage = () => {
   return (
@@ -6,6 +6,10 @@ const SearchPage = () => {
       <SearchInputAndList />
     </div>
   );
+};
+
+export const getServerSideProps = () => {
+  return { props: {} };
 };
 
 export default SearchPage;

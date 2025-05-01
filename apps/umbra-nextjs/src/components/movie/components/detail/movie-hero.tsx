@@ -1,5 +1,5 @@
-import { BookmarkButton } from '@/pages/bookmarks/components/bookmark-button';
-import { MovieDetailsApiResponse } from '../../movie-detail-repository';
+import { BookmarkButton } from '@/components/bookmarks/components/bookmark-button';
+import { MovieDetailsApiResponse } from '@/components/movie/movie-detail-repository';
 import Image from 'next/image';
 
 const MovieHero: React.FC<{ movieDetail: MovieDetailsApiResponse }> = ({ movieDetail }) => {

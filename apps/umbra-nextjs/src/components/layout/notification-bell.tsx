@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNotificationStore } from '../../pages/bookmarks/store/notification-store';
+import { useNotificationStore } from '@/components/bookmarks/store/notification-store';
 import Link from 'next/link';
 
 const NotificationBell = () => {
